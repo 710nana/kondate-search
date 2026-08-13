@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>献立検索</title>
+
+    <style>
+        body {
+            font-family: sans-serif;
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 30px 20px;
+            background-color: #f7f7f7;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .search-box {
+            display: flex;
+            gap: 10px;
+            margin: 25px 0;
+        }
+
+        #searchInput {
+            flex: 1;
+            padding: 12px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+        }
+
+        button {
+            padding: 12px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        .search-button {
+            background-color: #333;
+            color: white;
+        }
+
+        .result {
+            background-color: white;
+            padding: 20px;
+            margin-bottom: 15px;
+            border-radius: 10px;
+        }
+
+        /* ランキングの枠 */
+        .ranking-box {
+            background-color: white;
+            border: 2px solid #333;
+            border-radius: 12px;
+            padding: 20px;
+            margin-top: 20px;
+            margin-bottom: 0;
+        }
+
+        /* ランキングタイトル */
+        .ranking-box h2 {
+            margin-top: 0;
+            margin-bottom: 18px;
+            font-size: 24px;
+            font-weight: 700;
+        }
+
+        /* ランキング1行 */
+        .ranking-item {
+            display: flex;
+            align-items: center;
+            padding: 11px 5px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        /* 最後の行だけ線を消す */
+        .ranking-item:last-child {
+            border-bottom: none;
+        }
+
+        /* 順位 */
+        .rank {
+            width: 55px;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        /* 料理名 */
+        .ranking-menu {
+            flex: 1;
+            font-size: 17px;
+        }
+
+        /* 回数 */
+        .count {
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        /* もっと見るボタン */
+        .more-button {
+            display: block;
+            margin: 20px auto 0;
+
+            /* 背景とは違う色 */
+            background-color: white;
+
+            /* 文字 */
+            color: #333;
+
+            /* 枠線 */
+            border: 2px solid #333;
+
+            /* 角を丸く */
+            border-radius: 8px;
+
+            /* 大きさ */
+            padding: 10px 28px;
+
+            /* 文字 */
+            font-size: 15px;
+            font-weight: bold;
+
+            /* マウスカーソル */
+            cursor: pointer;
+
+            /* 少し影 */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+        }
+
+        /* ボタンにマウスを乗せたとき */
+        .more-button:hover {
+            background-color: #f0f0f0;
+        }
+
+        /* ボタンを押しているとき */
+        .more-button:active {
+            box-shadow: none;
+            transform: translateY(1px);
+        }
+
+        /* ランキングと過去の献立の間 */
+        .results-space {
+            height: 45px;
+        }
+
+        /* 過去の献立タイトル */
+        .results-title {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 18px;
+        }
+
+        .date {
+            font-weight: bold;
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .menu-item {
+            margin: 5px 0;
+        }
+
+        .no-result {
+            text-align: center;
+            padding: 30px;
+            color: #666;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>🍳 献立検索</h1>
+
+    <div class="search-box">
+        <input
+            type="text"
+            id="searchInput"
+            placeholder="料理名を入力してください"
+        >
+
+        <button class="search-button" onclick="searchMenu()">
+            検索
+        </button>
+    </div>
+
+    <div id="results">
+        <div class="no-result">
+            料理名を入力して検索してください
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
